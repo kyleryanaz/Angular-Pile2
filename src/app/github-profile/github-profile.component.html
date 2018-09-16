@@ -2,4 +2,6 @@
   github-profile works!
 </p>
 <!-- Navigates back the same component (followers) with new params (1234) -->
-<button [routerLink]="['/followers', 1234]" class="btn btn-primary">Next</button>
+<!-- <button [routerLink]="['/followers', 1234]" class="btn btn-primary">Next</button> -->
+
+<button (click)="submit()" class="btn btn-primary">Submit</button>
