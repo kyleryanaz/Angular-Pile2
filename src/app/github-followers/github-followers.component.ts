@@ -1,18 +1,29 @@
-import { GithubFollowersService } from './../services/github-followers.service';
-import { Component, OnInit } from '@angular/core';
+import { GithubFollowersService } from "./../services/github-followers.service";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'github-followers',
-  templateUrl: './github-followers.component.html',
-  styleUrls: ['./github-followers.component.css']
+  selector: "github-followers",
+  templateUrl: "./github-followers.component.html",
+  styleUrls: ["./github-followers.component.css"]
 })
 export class GithubFollowersComponent implements OnInit {
   followers: any[];
 
-  constructor(private service: GithubFollowersService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private service: GithubFollowersService
+  ) {}
 
   ngOnInit() {
-    this.service.getAll()
-      .subscribe(followers => this.followers = followers);
+    // this.route.paramMap.subscribe();
+    // Snapshot required params
+    // let id = this.route.snapshot.paramMap.get('id');
+
+    // this.route.queryParamMap.subscribe();
+    // Snapshot query params
+    // let page = this.route.snapshot.queryParamMap.get('page');
+
+    this.service.getAll().subscribe(followers => (this.followers = followers));
   }
 }
